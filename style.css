@@ -235,22 +235,27 @@ nav ul li a:hover:after{
 .work:hover .layer{
      height: 25%; 
 }
-.btn{
-    
-    display: block;
+.btn {
+    display: inline-block; /* Changed to inline-block for button behavior */
     margin: 50px auto;
-    width: fit-content;
-    border: 1px solid #ecae1f;
     padding: 14px 50px;
+    border: 1px solid #ecae1f;
     border-radius: 6px;
     text-decoration: none;
     color: #fff;
-    transition: background 0.5s;
-    
-    
+    background-color: transparent; /* Transparent background */
+    transition: background-color 0.5s;
+    cursor: pointer; /* Use pointer cursor for better UX */
 }
-.btn:hover{
-    background: #ff004f;
+
+.btn:hover {
+    background-color: #ff004f;
+}
+
+.btn.btn-view-resume {
+    display: block; /* Override display to block for centered alignment */
+    margin: 50px auto; /* Adjust margin for centering */
+    width: fit-content;
 }
 
 /* ----------   contact  ---------- */
