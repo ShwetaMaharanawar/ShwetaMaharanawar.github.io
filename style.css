@@ -235,27 +235,37 @@ nav ul li a:hover:after{
 .work:hover .layer{
      height: 25%; 
 }
+.container {
+    padding: 10px 10%;
+    position: relative; /* Ensure relative positioning for absolute button placement */
+}
+
 .btn {
-    display: inline-block; /* Changed to inline-block for button behavior */
-    margin: 50px auto;
+    display: inline-block;
     padding: 14px 50px;
     border: 1px solid #ecae1f;
     border-radius: 6px;
     text-decoration: none;
     color: #fff;
-    background-color: transparent; /* Transparent background */
     transition: background-color 0.5s;
-    cursor: pointer; /* Use pointer cursor for better UX */
+    cursor: pointer;
+    margin-right: 20px; /* Add margin between buttons */
 }
 
 .btn:hover {
     background-color: #ff004f;
 }
 
+.btn.btn-download-cv {
+    background-color: #ecae1f; /* Different background color for download button */
+}
+
 .btn.btn-view-resume {
-    display: block; /* Override display to block for centered alignment */
-    margin: 50px auto; /* Adjust margin for centering */
-    width: fit-content;
+    background-color: transparent; /* Transparent background for view resume button */
+}
+
+.btn.btn-view-resume:hover {
+    background-color: #ff004f;
 }
 
 /* ----------   contact  ---------- */
