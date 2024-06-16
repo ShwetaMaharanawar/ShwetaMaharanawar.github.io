@@ -226,7 +226,7 @@ that will improve the lives of those around me..
 </div>
 
 
-    <script>
+  <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyytN-dZUCH8JmHK3loHoUY1uIYHXNeFkCmtaQeSUaYlAsy-hO1dvBjW_DNDeuXHwCd/exec';
     const form = document.forms['submit-to-google-sheet'];
     const msg = document.getElementById("msg");
@@ -235,6 +235,13 @@ that will improve the lives of those around me..
         e.preventDefault();
         fetch(scriptURL, { method: 'POST', body: new FormData(form) })
             .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // Assuming the server returns JSON data
+            })
+            .then(data => {
+                console.log('Form successfully submitted:', data);
                 msg.innerHTML = "Message sent successfully";
                 setTimeout(function() {
                     msg.innerHTML = "";
@@ -242,6 +249,7 @@ that will improve the lives of those around me..
                 form.reset(); // Reset form after successful submission
             })
             .catch(error => {
+                console.error('Error submitting form:', error);
                 msg.innerHTML = "Error sending message";
                 setTimeout(function() {
                     msg.innerHTML = "";
@@ -249,6 +257,7 @@ that will improve the lives of those around me..
             });
     });
 </script>
+
 
     </body>
     </html>
