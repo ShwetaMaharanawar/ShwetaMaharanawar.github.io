@@ -224,37 +224,45 @@ that will improve the lives of those around me..
     </div>
 
     <!-- JavaScript for form submission -->
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyytN-dZUCH8JmHK3loHoUY1uIYHXNeFkCmtaQeSUaYlAsy-hO1dvBjW_DNDeuXHwCd/exec';
-        const form = document.forms['submit-to-google-sheet'];
-        const msg = document.getElementById("msg");
+   <!-- Replace the form action with your Google Apps Script URL -->
+<form name="submit-to-google-sheet" action="https://script.google.com/macros/s/AKfycbyytN-dZUCH8JmHK3loHoUY1uIYHXNeFkCmtaQeSUaYlAsy-hO1dvBjW_DNDeuXHwCd/exec" method="POST">
+    <input type="text" name="Name" placeholder="Your Name" required>
+    <input type="email" name="Email" placeholder="Your Email" required>
+    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+    <button type="submit" class="btn btn2">Submit</button>
+</form>
+<span id="msg"></span>
 
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json(); // Assuming the server returns JSON data
-                })
-                .then(data => {
-                    console.log('Form submission successful:', data);
-                    msg.innerHTML = "Message sent successfully";
-                    setTimeout(function() {
-                        msg.innerHTML = "";
-                    }, 5000);
-                    form.reset(); // Reset form after successful submission
-                })
-                .catch(error => {
-                    console.error('Error submitting form:', error);
-                    msg.innerHTML = "Error sending message. Please try again later."; // Update error message
-                    setTimeout(function() {
-                        msg.innerHTML = "";
-                    }, 5000);
-                });
-        });
-    </script>
+<script>
+    const form = document.forms['submit-to-google-sheet'];
+    const msg = document.getElementById("msg");
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        fetch(form.action, { method: 'POST', body: new FormData(form) })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // Assuming the server returns JSON data
+            })
+            .then(data => {
+                console.log('Form submission successful:', data);
+                msg.innerHTML = "Message sent successfully";
+                setTimeout(function() {
+                    msg.innerHTML = "";
+                }, 5000);
+                form.reset(); // Reset form after successful submission
+            })
+            .catch(error => {
+                console.error('Error submitting form:', error);
+                msg.innerHTML = "Error sending message. Please try again later."; // Update error message
+                setTimeout(function() {
+                    msg.innerHTML = "";
+                }, 5000);
+            });
+    });
+</script>
 
 </body>
 </html>
