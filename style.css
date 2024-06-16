@@ -267,6 +267,10 @@ nav ul li a:hover:after{
 .btn.btn-view-resume:hover {
     background-color: #ff004f;
 }
+.btn.btn-view-resume {
+    margin-left: 20px; /* Add margin to create space between buttons */
+}
+
 
 /* ----------   contact  ---------- */
 
