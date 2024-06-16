@@ -241,7 +241,7 @@ that will improve the lives of those around me..
                 return response.json(); // Assuming the server returns JSON data
             })
             .then(data => {
-                console.log('Form successfully submitted:', data);
+                console.log('Form submission successful:', data);
                 msg.innerHTML = "Message sent successfully";
                 setTimeout(function() {
                     msg.innerHTML = "";
@@ -250,13 +250,14 @@ that will improve the lives of those around me..
             })
             .catch(error => {
                 console.error('Error submitting form:', error);
-                msg.innerHTML = "Error sending message";
+                msg.innerHTML = "Error sending message. Please try again later."; // Update error message
                 setTimeout(function() {
                     msg.innerHTML = "";
                 }, 5000);
             });
     });
 </script>
+
 
 
     </body>
