@@ -463,11 +463,12 @@
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
         }
 
-        #msg {
-            color: #667eea;
+        #status {
+            color: #4caf50;
             font-weight: 600;
-            margin-top: 10px;
+            margin-top: 15px;
             font-size: 14px;
+            text-align: center;
         }
 
         footer {
@@ -754,13 +755,13 @@
             </div>
 
             <div class="contact-form">
-                <form id="contactForm">
-                    <input type="text" id="name" placeholder="Your Name" required>
-                    <input type="email" id="email" placeholder="Your Email" required>
-                    <textarea id="message" rows="6" placeholder="Your Message" required></textarea>
+                <form action="https://formspree.io/f/mdkwzwgd" method="POST" id="contactForm">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
                     <button type="submit">Send Message</button>
                 </form>
-                <span id="msg"></span>
+                <p id="status"></p>
             </div>
         </div>
     </section>
@@ -770,35 +771,40 @@
     </footer>
 
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // Construct mailto link
-            const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
-            const body = encodeURIComponent(
-                `Name: ${name}\n` +
-                `Email: ${email}\n\n` +
-                `Message:\n${message}`
-            );
-            
-            const mailtoLink = `mailto:shwetamaharanawar@gmail.com?subject=${subject}&body=${body}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show success message
-            document.getElementById('msg').textContent = "Opening your email client...";
-            
-            // Reset form after a delay
-            setTimeout(() => {
-                this.reset();
-                document.getElementById('msg').textContent = "";
-            }, 3000);
-        });
+        var form = document.getElementById("contactForm");
+        
+        async function handleSubmit(event) {
+            event.preventDefault();
+            var status = document.getElementById("status");
+            var data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    status.style.color = "#4caf50";
+                    status.innerHTML = "Message sent successfully! I'll get back to you soon.";
+                    form.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            status.style.color = "#ff6b6b";
+                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            status.style.color = "#ff6b6b";
+                            status.innerHTML = "Oops! There was a problem submitting your form";
+                        }
+                    })
+                }
+            }).catch(error => {
+                status.style.color = "#ff6b6b";
+                status.innerHTML = "Oops! There was a problem submitting your form";
+            });
+        }
+        form.addEventListener("submit", handleSubmit)
     </script>
 </body>
 </html>
