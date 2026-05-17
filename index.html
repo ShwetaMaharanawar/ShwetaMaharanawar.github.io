@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Shweta Maharanawar | Teamcenter Developer | Light Sky Portfolio</title>
-    <!-- Font Awesome 6 (free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -25,7 +24,6 @@
             line-height: 1.5;
         }
 
-        /* custom light sky blue color scheme */
         :root {
             --sky-light: #e3f2fd;
             --sky-primary: #7ab3c8;
@@ -37,7 +35,6 @@
             --border-glow: rgba(72, 149, 196, 0.3);
         }
 
-        /* navbar fixed */
         nav {
             display: flex;
             align-items: center;
@@ -99,12 +96,10 @@
             color: #135b7a;
         }
 
-        /* sections spacing */
         section {
             padding: 100px 7% 80px;
         }
 
-        /* header section */
         #header {
             min-height: 100vh;
             display: flex;
@@ -189,7 +184,6 @@
             transform: translateY(-3px);
         }
 
-        /* section title unified */
         .section-title {
             font-size: 2.5rem;
             text-align: center;
@@ -209,7 +203,6 @@
             border-radius: 4px;
         }
 
-        /* about */
         #about {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(2px);
@@ -250,7 +243,6 @@
             margin-bottom: 0.4rem;
         }
 
-        /* experience */
         .experience-item {
             background: var(--card-bg);
             backdrop-filter: blur(4px);
@@ -295,14 +287,13 @@
         }
 
         .experience-item ul li::before {
-            content;
+            content: "✦";
             position: absolute;
             left: 0;
             color: #4895c4;
             font-weight: bold;
         }
 
-        /* skills grid */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -349,7 +340,6 @@
             font-weight: 500;
         }
 
-        /* projects */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
@@ -410,15 +400,14 @@
             font-size: 1.4rem;
             margin-right: 1rem;
             transition: 0.2s;
+            display: inline-block;
         }
 
         .project-links a:hover {
             color: #135b7a;
             transform: scale(1.1);
-            display: inline-block;
         }
 
-        /* contact */
         #contact {
             background: #e1f0f9;
         }
@@ -561,22 +550,8 @@
             }
         }
 
-        /* extra glow & smoothness */
         a, button {
             transition: all 0.2s ease;
-        }
-        .container-fade {
-            animation: fadeUp 0.7s ease-out;
-        }
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
     </style>
 </head>
@@ -653,17 +628,17 @@
     <section id="projects">
         <h2 class="section-title">Key Projects</h2>
         <div class="projects-grid">
-           
+            <div class="project-card"><div class="project-content"><h3>Automated Change Management</h3><p>ECN/ECO full automation suite using ITK & workflow engine. Reduced change cycle time by 60% and built custom AWC dashboard.</p><div class="project-tech"><span class="tech-tag">ITK</span><span class="tech-tag">C++</span><span class="tech-tag">AWC</span></div><div class="project-links"><a href="https://github.com/ShwetaMaharanawar" target="_blank"><i class="fab fa-github"></i></a></div></div></div>
             <div class="project-card"><div class="project-content"><h3>BOM Management Framework</h3><p>High-performance BOM comparison tool supporting 10k+ components; reduced report generation from 10min → 30s.</p><div class="project-tech"><span class="tech-tag">ITK</span><span class="tech-tag">React</span><span class="tech-tag">SQL</span></div><div class="project-links"><a href="https://github.com/ShwetaMaharanawar" target="_blank"><i class="fab fa-github"></i></a></div></div></div>
             <div class="project-card"><div class="project-content"><h3>Legacy Data Migration Tool</h3><p>Successfully migrated 50k+ legacy CAD files into Teamcenter using Java & Teamcenter APIs, achieving 99.8% accuracy.</p><div class="project-tech"><span class="tech-tag">Java</span><span class="tech-tag">ETL</span><span class="tech-tag">Teamcenter APIs</span></div><div class="project-links"><a href="https://github.com/ShwetaMaharanawar" target="_blank"><i class="fab fa-github"></i></a></div></div></div>
-            <div class="project-card"><div class="project-content"><h3>Sepsis Prediction System</h3><p>ML model (Random Forest) with Flask web app for real-time ICU risk prediction. Published research paper.</p><div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">Flask</span><span class="tech-tag">ML</span></div><div class="project-links"><a href="https://github.com/ShwetaMaharanawar/Accurate-Prediction-of-Sepsis-in-ICU-Patients.git" target="_blank"><i class="fab fa-github"></i></a><a href="https://ijcrt.org/viewfull.php?&p_id=IJCRT2405107" target="_blank"><i class="fas fa-book"></i></a></div></div></div>
+            <div class="project-card"><div class="project-content"><h3>Sepsis Prediction System</h3><p>ML model (Random Forest) with Flask web app for real-time ICU risk prediction. Published research paper.</p><div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">Flask</span><span class="tech-tag">ML</span></div><div class="project-links"><a href="https://github.com/ShwetaMaharanawar/Accurate-Prediction-of-Sepsis-in-ICU-Patients.git" target="_blank"><i class="fab fa-github"></i></a><a href="https://ijcrt.org/viewfull.php?&p_id=IJCRT2405107" target="_blank"><i class="fas fa-external-link-alt"></i></a></div></div></div>
             <div class="project-card"><div class="project-content"><h3>Custom Virtual File System</h3><p>Linux-like VFS implementation in C++ with custom inode & file table structures.</p><div class="project-tech"><span class="tech-tag">C++</span><span class="tech-tag">OS Concepts</span></div><div class="project-links"><a href="https://github.com/ShwetaMaharanawar/Customized-Virtual-File-System-in-C.git" target="_blank"><i class="fab fa-github"></i></a></div></div></div>
             <div class="project-card"><div class="project-content"><h3>File Packer with Encryption</h3><p>Java desktop utility for packing + encrypting files; GUI interface for secure data handling.</p><div class="project-tech"><span class="tech-tag">Java</span><span class="tech-tag">Swing</span><span class="tech-tag">Crypto</span></div><div class="project-links"><a href="https://github.com/ShwetaMaharanawar/File-Packer-Unpacker-Java.git" target="_blank"><i class="fab fa-github"></i></a></div></div></div>
         </div>
     </section>
 
     <section id="contact">
-        <h2 class="section-title">Let’s Connect</h2>
+        <h2 class="section-title">Let's Connect</h2>
         <div class="contact-container">
             <div class="contact-info">
                 <h3>Reach out anytime</h3>
@@ -690,53 +665,65 @@
     </section>
 
     <footer>
-        <p>© 2026 Shweta Maharanawar</p>
+        <p>© 2026 Shweta Maharanawar — Light Sky Portfolio | Teamcenter Developer</p>
     </footer>
 
     <script>
-        // smooth active link highlight on scroll (simple)
+        // FIXED: Better active link detection with offset handling
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('nav ul li a');
+
         function setActive() {
             let current = '';
+            const scrollPosition = window.scrollY + 150; // Added offset for better detection
+            
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - 120;
+                const sectionTop = section.offsetTop;
                 const sectionBottom = sectionTop + section.offsetHeight;
-                if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                     current = section.getAttribute('id');
                 }
             });
+            
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
+                const href = link.getAttribute('href').substring(1); // Remove # from href
+                if (href === current) {
                     link.classList.add('active');
                 }
             });
         }
+        
         window.addEventListener('scroll', setActive);
         window.addEventListener('load', setActive);
         
-        // Resume download handler (since pdf placeholder)
+        // Also update active state when clicking on nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Resume download handler
         const downloadBtns = document.querySelectorAll('#downloadResumeBtn, #resumeSideBtn');
         downloadBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                // alert for demo, but can trigger actual pdf if file exists.
-                // use dummy generation / or provide real file
                 const link = document.createElement('a');
                 link.href = 'ShwetaMaharanawar_BE_IT_2024.pdf';
                 link.download = 'ShwetaMaharanawar_Resume.pdf';
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-                // fallback message if file missing
                 setTimeout(() => {
                     console.log("Resume download triggered — ensure 'ShwetaMaharanawar_BE_IT_2024.pdf' is available");
                 }, 100);
             });
         });
 
-        // contact form handler with formspree
+        // Contact form handler
         const form = document.getElementById("contactForm");
         const statusMsg = document.getElementById("status");
         if (form) {
