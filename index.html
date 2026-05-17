@@ -445,22 +445,48 @@
             display: flex;
             gap: 1rem;
             margin: 2rem 0 1rem;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
         .social-links a {
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             background: rgba(44, 125, 160, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #2c7da0;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             transition: 0.2s;
+            text-decoration: none;
         }
 
         .social-links a:hover {
+            background: #2c7da0;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Resume download button - same style as social icons */
+        .resume-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(44, 125, 160, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2c7da0;
+            font-size: 1.5rem;
+            transition: 0.2s;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .resume-icon:hover {
             background: #2c7da0;
             color: white;
             transform: scale(1.05);
@@ -547,6 +573,11 @@
             }
             .stats {
                 gap: 1rem;
+            }
+            .social-links a, .resume-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
             }
         }
 
@@ -645,12 +676,13 @@
                 <div class="contact-item"><i class="fas fa-envelope"></i><span>shwetamaharanawar@gmail.com</span></div>
                 <div class="contact-item"><i class="fas fa-phone-alt"></i><span>+91-7028672817</span></div>
                 <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Pune, Maharashtra, India</span></div>
+                
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/shweta-maharanawar-00b05b210/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://github.com/ShwetaMaharanawar" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" class="resume-icon" id="resumeIconBtn"><i class="fas fa-file-pdf"></i></a>
                     <a href="https://shwetamaharanawar.github.io" target="_blank"><i class="fas fa-globe"></i></a>
                 </div>
-                <a href="#" class="btn btn-primary" id="resumeSideBtn" style="margin-top: 2rem; display: inline-block;"><i class="fas fa-file-pdf"></i> Resume (PDF)</a>
             </div>
             <div class="contact-form">
                 <form id="contactForm" action="https://formspree.io/f/mdkwzwgd" method="POST">
@@ -669,13 +701,13 @@
     </footer>
 
     <script>
-        // FIXED: Better active link detection with offset handling
+        // Active link detection
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('nav ul li a');
 
         function setActive() {
             let current = '';
-            const scrollPosition = window.scrollY + 150; // Added offset for better detection
+            const scrollPosition = window.scrollY + 150;
             
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
@@ -688,7 +720,7 @@
             
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                const href = link.getAttribute('href').substring(1); // Remove # from href
+                const href = link.getAttribute('href').substring(1);
                 if (href === current) {
                     link.classList.add('active');
                 }
@@ -698,7 +730,6 @@
         window.addEventListener('scroll', setActive);
         window.addEventListener('load', setActive);
         
-        // Also update active state when clicking on nav links
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 navLinks.forEach(l => l.classList.remove('active'));
@@ -706,21 +737,24 @@
             });
         });
         
-        // Resume download handler
-        const downloadBtns = document.querySelectorAll('#downloadResumeBtn, #resumeSideBtn');
+        // Resume download handler for all download buttons
+        function downloadResume() {
+            const link = document.createElement('a');
+            link.href = 'ShwetaMaharanawar_BE_IT_2024.pdf';
+            link.download = 'ShwetaMaharanawar_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        
+        const downloadBtns = document.querySelectorAll('#downloadResumeBtn, #resumeSideBtn, #resumeIconBtn');
         downloadBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const link = document.createElement('a');
-                link.href = 'ShwetaMaharanawar_BE_IT_2024.pdf';
-                link.download = 'ShwetaMaharanawar_Resume.pdf';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                setTimeout(() => {
-                    console.log("Resume download triggered — ensure 'ShwetaMaharanawar_BE_IT_2024.pdf' is available");
-                }, 100);
-            });
+            if (btn) {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    downloadResume();
+                });
+            }
         });
 
         // Contact form handler
