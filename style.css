@@ -1,7 +1,7 @@
 *{
     margin:0;
     padding:0;
-    font-family:'Poppins',Arial,Helvetica,sans-serif;
+    font-family:'Poppins',Arial,sans-serif;
     box-sizing:border-box;
 }
 
@@ -18,7 +18,7 @@ body{
 
 #header{
     width:100%;
-    height:100vh;
+    min-height:100vh;
     background-image:url(images/download.jpg);
     background-size:cover;
     background-position:center;
@@ -28,15 +28,17 @@ body{
 #header::before{
     content:"";
     position:absolute;
+    top:0;
+    left:0;
     width:100%;
     height:100%;
-    background:rgba(255,255,255,.75);
+    background:rgba(255,255,255,.85);
 }
 
 .container{
     padding:10px 10%;
     position:relative;
-    z-index:2;
+    z-index:10;
 }
 
 /* Navigation */
@@ -46,10 +48,10 @@ nav{
     align-items:center;
     justify-content:space-between;
     flex-wrap:wrap;
-    background:#fff;
-    padding:15px 5%;
+    background:white;
+    padding:20px;
     border-radius:12px;
-    box-shadow:0 3px 20px rgba(0,0,0,.08);
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
 }
 
 .logo{
@@ -58,7 +60,6 @@ nav{
 
 nav ul li{
     display:inline-block;
-    list-style:none;
     margin:10px 20px;
 }
 
@@ -87,8 +88,7 @@ nav ul li a:hover::after{
 /* Hero */
 
 .header-text{
-    margin-top:10%;
-    font-size:30px;
+    margin-top:15%;
 }
 
 .header-text h1{
@@ -106,60 +106,95 @@ nav ul li a:hover::after{
 /* About */
 
 #about{
-    padding:150px 0;
+    padding:100px 0;
     background:#fff;
-    color:#555;
 }
 
 .sub-title{
-    font-size:60px;
     color:#222;
 }
 
-/* Cards */
+.about-col-2{
+    color:#555;
+}
 
-.Services-list div,
-.work,
-.contact-right form,
-.about-col-2,
-.contact-left{
-    background:#fff;
-    border-radius:15px;
-    box-shadow:0 5px 25px rgba(0,0,0,.07);
+/* Services */
+
+#services{
+    padding:60px 0;
+    background:#f5f7fb;
+}
+
+.Services-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-gap:30px;
 }
 
 .Services-list div{
+    background:white;
     padding:40px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,.06);
     transition:.4s;
 }
 
 .Services-list div:hover{
     transform:translateY(-10px);
-    background:#667eea;
-    color:#fff;
+}
+
+.Services-list div h2{
+    color:#222;
+}
+
+.Services-list div p{
+    color:#555;
+}
+
+/* Portfolio */
+
+#portfolio{
+    background:#fff;
+}
+
+.work{
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.work img{
+    width:100%;
+}
+
+.layer{
+    background:linear-gradient(
+        rgba(102,126,234,.85),
+        rgba(118,75,162,.9)
+    );
+    color:white;
 }
 
 /* Buttons */
 
 .btn{
     display:inline-block;
-    padding:14px 50px;
+    padding:14px 40px;
+    background:#667eea;
+    color:white;
     border-radius:8px;
     text-decoration:none;
-    color:white;
-    background:#667eea;
     border:none;
-    transition:.4s;
 }
 
 .btn:hover{
-    background:#4c63d2;
+    background:#4f62d8;
 }
 
 /* Contact */
 
 .contact-left p{
-    color:#444;
+    color:#555;
 }
 
 .contact-left p i{
@@ -167,34 +202,28 @@ nav ul li a:hover::after{
 }
 
 .social-icons a{
-    color:#555;
+    color:#666;
     transition:.4s;
 }
 
 .social-icons a:hover{
     color:#667eea;
-    transform:translateY(-5px);
 }
 
 form input,
 form textarea{
     width:100%;
-    border:1px solid #ddd;
-    outline:none;
-    background:#fff;
     padding:15px;
-    margin:15px 0;
+    border:1px solid #ddd;
+    background:white;
     color:#222;
-    font-size:18px;
     border-radius:8px;
 }
 
 .copyright{
-    width:100%;
-    text-align:center;
-    padding:25px;
-    background:#fff;
-    color:#555;
-    margin-top:50px;
+    background:white;
+    color:#666;
     border-top:1px solid #eee;
+    padding:25px;
+    margin-top:50px;
 }
